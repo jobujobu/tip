@@ -199,3 +199,12 @@ body {
 .reset-btn:active {
   transform: scale(0.97);
 }
+
+.reset-btn:hover {
+  background: #f0f0f0;
+}
+
+.reset-btn:active {
+  transform: scale(0.98);
+  background: #e9e9e9;
+}
