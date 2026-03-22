@@ -11,6 +11,8 @@ const totalUsdEl = document.getElementById("totalUsd");
 const totalEurEl = document.getElementById("totalEur");
 const rateInfoEl = document.getElementById("rateInfo");
 
+const quickTipButtons = document.querySelectorAll(".quick-tip-btn");
+
 const FALLBACK_RATE = 0.92;
 let usdToEurRate = FALLBACK_RATE;
 let rateDateLabel = "";
@@ -59,6 +61,15 @@ amountMinus.addEventListener("click", () => changeInput(amountInput, -0.5, 2));
 amountPlus.addEventListener("click", () => changeInput(amountInput, 0.5, 2));
 tipMinus.addEventListener("click", () => changeInput(tipInput, -1, 0));
 tipPlus.addEventListener("click", () => changeInput(tipInput, 1, 0));
+
+quickTipButtons.forEach((button) => {
+  button.addEventListener("click", () => {
+    const value = button.dataset.tip;
+    tipInput.value = value;
+    localStorage.setItem("lastTipPercent", value);
+    updateCalculation();
+  });
+});
 
 amountInput.addEventListener("input", () => {
   localStorage.setItem("lastAmount", amountInput.value);
