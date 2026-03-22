@@ -178,3 +178,24 @@ body {
 .quick-tip-btn:active {
   transform: scale(0.98);
 }
+
+.reset-box {
+  margin-top: 14px;
+  display: flex;
+  justify-content: center;
+}
+
+.reset-btn {
+  height: 44px;
+  padding: 0 18px;
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  background: transparent;
+  color: var(--muted);
+  font-size: 0.95rem;
+  cursor: pointer;
+}
+
+.reset-btn:active {
+  transform: scale(0.97);
+}
