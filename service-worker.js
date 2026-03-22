@@ -1,4 +1,4 @@
-const CACHE_NAME = "trinkgeldrechner-v3";
+const CACHE_NAME = "trinkgeldrechner-v4";
 const ASSETS = [
   "./",
   "./index.html",
