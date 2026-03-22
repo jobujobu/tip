@@ -61,16 +61,18 @@ tipMinus.addEventListener("click", () => changeInput(tipInput, -1, 0));
 tipPlus.addEventListener("click", () => changeInput(tipInput, 1, 0));
 
 amountInput.addEventListener("input", updateCalculation);
-tipInput.addEventListener("input", updateCalculation);
+tipInput.addEventListener("input", () => {
+  localStorage.setItem("lastTipPercent", tipInput.value);
+  updateCalculation();
+});
 
 amountInput.addEventListener("focus", () => {
-  amountInput.select();
+  setTimeout(() => amountInput.select(), 0);
 });
 
 amountInput.addEventListener("click", () => {
-  amountInput.select();
+  setTimeout(() => amountInput.select(), 0);
 });
-
 async function loadExchangeRate() {
   const cachedRate = localStorage.getItem("usdToEurRate");
   const cachedDate = localStorage.getItem("usdToEurRateDate");
@@ -124,6 +126,11 @@ if ("serviceWorker" in navigator) {
   window.addEventListener("load", () => {
     navigator.serviceWorker.register("./service-worker.js");
   });
+}
+
+const savedTip = localStorage.getItem("lastTipPercent");
+if (savedTip !== null) {
+  tipInput.value = savedTip;
 }
 
 updateCalculation();
