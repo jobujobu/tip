@@ -60,7 +60,11 @@ amountPlus.addEventListener("click", () => changeInput(amountInput, 0.5, 2));
 tipMinus.addEventListener("click", () => changeInput(tipInput, -1, 0));
 tipPlus.addEventListener("click", () => changeInput(tipInput, 1, 0));
 
-amountInput.addEventListener("input", updateCalculation);
+amountInput.addEventListener("input", () => {
+  localStorage.setItem("lastAmount", amountInput.value);
+  updateCalculation();
+});
+
 tipInput.addEventListener("input", () => {
   localStorage.setItem("lastTipPercent", tipInput.value);
   updateCalculation();
@@ -73,6 +77,15 @@ amountInput.addEventListener("focus", () => {
 amountInput.addEventListener("click", () => {
   setTimeout(() => amountInput.select(), 0);
 });
+
+tipInput.addEventListener("focus", () => {
+  setTimeout(() => tipInput.select(), 0);
+});
+
+tipInput.addEventListener("click", () => {
+  setTimeout(() => tipInput.select(), 0);
+});
+
 async function loadExchangeRate() {
   const cachedRate = localStorage.getItem("usdToEurRate");
   const cachedDate = localStorage.getItem("usdToEurRateDate");
@@ -126,6 +139,11 @@ if ("serviceWorker" in navigator) {
   window.addEventListener("load", () => {
     navigator.serviceWorker.register("./service-worker.js");
   });
+}
+
+const savedAmount = localStorage.getItem("lastAmount");
+if (savedAmount !== null) {
+  amountInput.value = savedAmount;
 }
 
 const savedTip = localStorage.getItem("lastTipPercent");
