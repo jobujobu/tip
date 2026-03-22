@@ -39,6 +39,24 @@ function formatEur(value) {
   }).format(value);
 }
 
+function saveValues() {
+  localStorage.setItem("lastAmount", amountInput.value);
+  localStorage.setItem("lastTipPercent", tipInput.value);
+}
+
+function loadSavedValues() {
+  const savedAmount = localStorage.getItem("lastAmount");
+  const savedTip = localStorage.getItem("lastTipPercent");
+
+  if (savedAmount !== null) {
+    amountInput.value = savedAmount;
+  }
+
+  if (savedTip !== null) {
+    tipInput.value = savedTip;
+  }
+}
+
 function updateCalculation() {
   const amount = Math.max(0, parseValue(amountInput.value));
   const tipPercent = Math.max(0, parseValue(tipInput.value));
@@ -56,6 +74,7 @@ function changeInput(input, delta, decimals = 2) {
   const current = parseValue(input.value);
   const next = Math.max(0, current + delta);
   input.value = next.toFixed(decimals);
+  saveValues();
   updateCalculation();
 }
 
@@ -74,12 +93,12 @@ quickTipButtons.forEach((button) => {
 });
 
 amountInput.addEventListener("input", () => {
-  localStorage.setItem("lastAmount", amountInput.value);
+  saveValues();
   updateCalculation();
 });
 
 tipInput.addEventListener("input", () => {
-  localStorage.setItem("lastTipPercent", tipInput.value);
+  saveValues();
   updateCalculation();
 });
 
