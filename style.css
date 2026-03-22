@@ -156,3 +156,25 @@ body {
     font-size: 1.3rem;
   }
 }
+
+.quick-tips {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+  margin-top: 14px;
+}
+
+.quick-tip-btn {
+  height: 48px;
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  background: #fafafa;
+  color: var(--text);
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.quick-tip-btn:active {
+  transform: scale(0.98);
+}
