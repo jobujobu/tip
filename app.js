@@ -63,6 +63,14 @@ tipPlus.addEventListener("click", () => changeInput(tipInput, 1, 0));
 amountInput.addEventListener("input", updateCalculation);
 tipInput.addEventListener("input", updateCalculation);
 
+amountInput.addEventListener("focus", () => {
+  amountInput.select();
+});
+
+amountInput.addEventListener("click", () => {
+  amountInput.select();
+});
+
 async function loadExchangeRate() {
   const cachedRate = localStorage.getItem("usdToEurRate");
   const cachedDate = localStorage.getItem("usdToEurRateDate");
