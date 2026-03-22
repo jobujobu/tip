@@ -23,20 +23,20 @@
       </div>
     </section>
 
-<section class="card">
-  <label for="tipPercent" class="label">Trinkgeld in %</label>
-  <div class="stepper">
-    <button id="tipMinus" class="step-btn" type="button" aria-label="Prozent verringern">−</button>
-    <input id="tipPercent" class="input" type="number" inputmode="decimal" min="0" step="1" value="15" />
-    <button id="tipPlus" class="step-btn" type="button" aria-label="Prozent erhöhen">+</button>
-  </div>
+    <section class="card">
+      <label for="tipPercent" class="label">Trinkgeld in %</label>
+      <div class="stepper">
+        <button id="tipMinus" class="step-btn" type="button" aria-label="Prozent verringern">−</button>
+        <input id="tipPercent" class="input" type="number" inputmode="decimal" min="0" step="1" value="15" />
+        <button id="tipPlus" class="step-btn" type="button" aria-label="Prozent erhöhen">+</button>
+      </div>
 
-  <div class="quick-tips">
-    <button class="quick-tip-btn" type="button" data-tip="10">10%</button>
-    <button class="quick-tip-btn" type="button" data-tip="15">15%</button>
-    <button class="quick-tip-btn" type="button" data-tip="20">20%</button>
-  </div>
-</section>
+      <div class="quick-tips">
+        <button class="quick-tip-btn" type="button" data-tip="10">10%</button>
+        <button class="quick-tip-btn" type="button" data-tip="15">15%</button>
+        <button class="quick-tip-btn" type="button" data-tip="20">20%</button>
+      </div>
+    </section>
 
     <section class="card results">
       <div class="result-row">
@@ -53,6 +53,9 @@
       </div>
       <div class="rate-box">
         <span id="rateInfo">Wechselkurs wird geladen…</span>
+      </div>
+      <div class="reset-box">
+        <button id="resetBtn" type="button" class="reset-btn">Zurücksetzen</button>
       </div>
     </section>
   </main>
