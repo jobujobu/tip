@@ -13,6 +13,7 @@ const rateInfoEl = document.getElementById("rateInfo");
 const resetBtn = document.getElementById("resetBtn");
 
 const quickTipButtons = document.querySelectorAll(".quick-tip-btn");
+const resultsCard = document.querySelector(".results");
 
 const FALLBACK_RATE = 0.92;
 let usdToEurRate = FALLBACK_RATE;
@@ -106,6 +107,10 @@ resetBtn.addEventListener("click", () => {
   localStorage.removeItem("lastTipPercent");
 
   updateCalculation();
+
+  resultsCard.classList.remove("flash-reset");
+  void resultsCard.offsetWidth;
+  resultsCard.classList.add("flash-reset");
 });
 
 async function loadExchangeRate() {
