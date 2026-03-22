@@ -10,6 +10,7 @@ const tipAmountEl = document.getElementById("tipAmount");
 const totalUsdEl = document.getElementById("totalUsd");
 const totalEurEl = document.getElementById("totalEur");
 const rateInfoEl = document.getElementById("rateInfo");
+const resetBtn = document.getElementById("resetBtn");
 
 const quickTipButtons = document.querySelectorAll(".quick-tip-btn");
 
@@ -95,6 +96,16 @@ tipInput.addEventListener("focus", () => {
 
 tipInput.addEventListener("click", () => {
   setTimeout(() => tipInput.select(), 0);
+});
+
+resetBtn.addEventListener("click", () => {
+  amountInput.value = "25.00";
+  tipInput.value = "15";
+
+  localStorage.removeItem("lastAmount");
+  localStorage.removeItem("lastTipPercent");
+
+  updateCalculation();
 });
 
 async function loadExchangeRate() {
