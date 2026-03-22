@@ -87,7 +87,7 @@ quickTipButtons.forEach((button) => {
   button.addEventListener("click", () => {
     const value = button.dataset.tip;
     tipInput.value = value;
-    localStorage.setItem("lastTipPercent", value);
+    saveValues();
     updateCalculation();
   });
 });
