@@ -1,1 +1,57 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <meta name="theme-color" content="#ffffff" />
+  <title>Trinkgeldrechner</title>
+  <link rel="manifest" href="manifest.json" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <main class="app">
+    <header class="header">
+      <h1>Trinkgeldrechner</h1>
+      <p class="subtitle">Schnell, klar, mobil</p>
+    </header>
 
+    <section class="card">
+      <label for="amount" class="label">Betrag in $</label>
+      <div class="stepper">
+        <button id="amountMinus" class="step-btn" type="button" aria-label="Betrag verringern">−</button>
+        <input id="amount" class="input" type="number" inputmode="decimal" min="0" step="0.50" value="25.00" />
+        <button id="amountPlus" class="step-btn" type="button" aria-label="Betrag erhöhen">+</button>
+      </div>
+    </section>
+
+    <section class="card">
+      <label for="tipPercent" class="label">Trinkgeld in %</label>
+      <div class="stepper">
+        <button id="tipMinus" class="step-btn" type="button" aria-label="Prozent verringern">−</button>
+        <input id="tipPercent" class="input" type="number" inputmode="decimal" min="0" step="1" value="15" />
+        <button id="tipPlus" class="step-btn" type="button" aria-label="Prozent erhöhen">+</button>
+      </div>
+    </section>
+
+    <section class="card results">
+      <div class="result-row">
+        <span>Trinkgeld</span>
+        <strong id="tipAmount">$0.00</strong>
+      </div>
+      <div class="result-row">
+        <span>Gesamt in $</span>
+        <strong id="totalUsd">$0.00</strong>
+      </div>
+      <div class="result-row highlight">
+        <span>Gesamt in €</span>
+        <strong id="totalEur">€0.00</strong>
+      </div>
+      <div class="rate-box">
+        <span id="rateInfo">Wechselkurs wird geladen…</span>
+      </div>
+    </section>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>
